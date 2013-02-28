@@ -1,0 +1,20 @@
+<h2 class="tutorial-title">Adicione aqui uma pérola</h2>
+
+
+<%= form_for @perola, :url => {:action => 'create'} do |p| %>
+
+  <!-- Renderiza erros -->
+  <% if @perola.errors.any? %>
+      <% @perola.errors.full_messages.each do |msg| %>
+          <span class=""><%= msg %></span>
+      <% end %>
+  <% end %>
+
+  <%= p.text_field :titulo, :maxlength => 50, :style => "width: 50%", :placeholder => 'Titulo *' %><br/>
+  <%= p.text_area :conteudo, :style => "height: 500px; width: 698px" %><br/>
+
+
+  <%= p.submit "Adicionar" %>
+  <%= link_to_function "Voltar", "history.back()" %>
+
+<% end %>
